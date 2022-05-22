@@ -1,16 +1,10 @@
 name: Build
-on:
-  push:
-    branches-ignore:
-      - data
-      - gh-pages
-    tags:
-      - '**'
-  pull_request:
-    branches-ignore:
-      - data
-      - gh-pages
+on: 
   workflow_dispatch:
+    branches-ignore:
+      - data
+      - gh-pages
+   
 
 jobs:
   # Build job. Builds app for Android with Buildozer
@@ -53,3 +47,9 @@ jobs:
       - name: Push binary to data branch
         if: github.event_name == 'push'
         run: python master/.ci/move_binary.py "${{ steps.buildozer.outputs.filename }}" master data bin
+   
+      - name: Cache Buildozer global directory
+        uses: actions/cache@v2
+        with:
+          path: .buildozer_global
+          key: buildozer-global-${{ hashFiles('test_app/buildozer.spec') }} # Replace with your path
