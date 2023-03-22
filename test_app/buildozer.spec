@@ -1,7 +1,7 @@
 [app]
 
-title = Test App
-package.name = testapp
+title = Pong App
+package.name = pong_app
 package.domain = org.test
 
 source.dir = .
