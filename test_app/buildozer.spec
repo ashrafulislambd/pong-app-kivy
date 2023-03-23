@@ -5,7 +5,7 @@ package.name = bn_en_detector
 package.domain = org.softimine
 
 source.dir = .
-source.include_exts = py,png,jpg,kv,atlas
+source.include_exts = py,png,jpg,kv,atlas,pkl
 
 version = 0.1
 requirements = python3,kivy,fastai
