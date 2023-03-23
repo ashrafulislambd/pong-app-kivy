@@ -1,0 +1,91 @@
+#:kivy 1.0.9
+
+HomeScreen:
+
+<HomeScreen>:
+    ScreenManager:
+        id: sm
+        Screen:
+            name: "home"
+            BoxLayout:
+                orientation: "vertical"
+                MDTopAppBar:
+                    title: "Hello"
+                    left_action_items: [["menu", lambda x: navbar.set_state("toggle")]]
+                    right_action_items: [["clock"], ["language-python"]]
+                MDLabel:
+                    id: lbl_camera
+                    text: "Select A Photo"
+                    halign: "center"
+                Image:
+                    id: image1
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDFlatButton:
+                        text: "Take Photo"
+                        on_release: app.take_picture()
+                        size_hint: None, None
+                        size: "200dp", "40dp"
+                        pos_hint: {"center_x" : .5}
+                MDBottomAppBar:
+                    MDTopAppBar:
+                        title: "Thanks"
+                        type: "bottom"
+                        icon: "plus"
+                        mode: "free-end"
+        Screen:
+            name: "profile"
+            BoxLayout:
+                orientation: "vertical"
+                MDTopAppBar:
+                    title: "Profile"
+                MDLabel:
+                    text: "Profile Info"
+                    halign: "center"
+
+    MDNavigationDrawer:
+        id: navbar
+        BoxLayout:
+            orientation: "vertical"
+            MDLabel:
+                text: "Hello"
+            MDList:
+                OneLineListItem:
+                    text: "Item 1"
+                OneLineListItem:
+                    text: "Item 2"
+                OneLineIconListItem:
+                    text: "Profile"
+                    on_press: sm.current = "profile"
+                    IconLeftWidget:
+                        icon: "face-man-profile"
+                    
+
+
+<Container>:
+    Button:
+        text: "Hello"
+        size: "40dp", "40dp"
+        pos: "100dp", "200dp"
+    Label:
+        text: "Hello 2"
+        size: "100dp", "80dp"
+        pos: "200dp", "300dp"
+        color: 1,0,0,1
+
+<BoxLayoutExample>:
+    orientation: "vertical"
+    MDRectangleFlatButton:
+        text: "Hello Box" 
+        size_hint: .8, .2
+        pos_hint: {"center_x": .5}
+    Button:
+        text: "Hello Box 2"
+    BoxLayout:
+        orientation: "horizontal"
+        MDFloatingActionButtonSpeedDial:
+            icon: "android"
+            data:  {"Android": "android"}
+            root_button_anim: True
+        Button:
+            text: "Hello 2"
