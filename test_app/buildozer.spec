@@ -1,14 +1,14 @@
 [app]
 
-title = Pong App
-package.name = pong_app
-package.domain = org.test
+title = Bangla English Detector
+package.name = bn_en_detector
+package.domain = org.softimine
 
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 0.1
-requirements = python3,kivy
+requirements = python3,kivy,fastai
 
 orientation = portrait
 fullscreen = 0
