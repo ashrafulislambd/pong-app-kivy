@@ -8,7 +8,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,pkl
 
 version = 0.1
-requirements = python3,kivy,fastai
+requirements = python3,kivy,fastai,plyer
 
 orientation = portrait
 fullscreen = 0
